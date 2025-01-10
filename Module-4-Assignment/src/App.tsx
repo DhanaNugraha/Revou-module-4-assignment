@@ -7,6 +7,8 @@ import Home from "./page/Home";
 import ProtectedRoute from "./component/ProtectedRoute";
 import Register from "./page/Register";
 import ProductDetail from "./page/ProductDetail";
+// import { CartProvider } from "./context/cartContext";
+
 
 
 const App = () => {

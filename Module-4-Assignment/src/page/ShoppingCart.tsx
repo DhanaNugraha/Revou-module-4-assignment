@@ -1,7 +1,18 @@
+import { useState} from "react";
 
-const ShoppingCart = () => {
+const ShoppingCart = (product:any) => {
+  // const [cartItems, setCartItems] = useState([]);
+  // console.log(product)
+  // alert(product)
+
+  // const addToCart = (product: Product) => {
+  //   setCartItems([...cartItems, product]);
+  // };
+
   return (
-    <div>ShoppingCart</div>
+    <div>
+      <h1>Shopping Cart</h1>
+    </div>
   )
 }
 
