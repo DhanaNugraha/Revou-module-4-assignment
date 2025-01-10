@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import ProductListing from "../component/ProductListing";
 
 const ProductCategory = () => {
   const [categoryFetched, setCategoryFetched] = useState([]);
-  const navigate = useNavigate();
+  const [categoryId, setCategoryId] = useState(1);
 
   useEffect(() => {
     fetchCategory();
@@ -46,9 +45,12 @@ const ProductCategory = () => {
   };
 
   const handleClickCategory = (event:any) => {
-    console.log(event.target.id)
+    // console.log(event.target.id)
+    setCategoryId(Number(event.target.id))
     return event.target.id
   }
+
+  
 
   return (
     <>
@@ -58,7 +60,9 @@ const ProductCategory = () => {
         ))}
       </ul>
 
-      <ProductListing />
+      <ProductListing
+        categoryId = {categoryId}
+      />
     </>
   );
 };
