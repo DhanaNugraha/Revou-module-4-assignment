@@ -29,7 +29,11 @@ const ProductCategory = () => {
             },
             body: JSON.stringify({
               name: value,
-            })})}
+            })})
+        if (!response){
+            throw new Error
+        }
+        }
       const response = await fetch(
         "https://api.escuelajs.co/api/v1/categories/"
       );

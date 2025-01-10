@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import AddToCartButton from "./AddToCartButton";
-import ShoppingCart from "../page/ShoppingCart";
+// import AddToCartButton from "./AddToCartButton";
+// import ShoppingCart from "../page/ShoppingCart";
 
 const ProductListing = ({ categoryId }: any) => {
 
@@ -60,7 +60,7 @@ const ProductListing = ({ categoryId }: any) => {
                             ${product.price}
                         </p>
                 </Link>
-                <button className="border text-[1em] font-medium bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s] px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent hover:border-[#646cff]" onClick={()=>{ShoppingCart(product)}}>add to cart</button>
+                <button className="border text-[1em] font-medium bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s] px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent hover:border-[#646cff]" >add to cart</button>
             </div>
         ))}
     </div> 

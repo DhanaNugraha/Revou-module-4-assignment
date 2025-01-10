@@ -1,6 +1,6 @@
-import { useState} from "react";
+// import { useState} from "react";
 
-const ShoppingCart = (product:any) => {
+const ShoppingCart = () => {
   // const [cartItems, setCartItems] = useState([]);
   // console.log(product)
   // alert(product)
