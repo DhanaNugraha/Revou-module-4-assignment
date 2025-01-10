@@ -1,6 +1,8 @@
 
 
 const LoginRegisterForm = ({email, setEmail, password, setPassword, onSubmit, formType}:any) => {
+    const submitButtonStyling = "border text-[1em] font-medium bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s] px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent hover:border-[#646cff]"
+
   return (
         <form onSubmit={onSubmit} className={"flex flex-col place-items-center p-[10%]"}>
             <fieldset className={"p-[1%]"}>
@@ -13,7 +15,7 @@ const LoginRegisterForm = ({email, setEmail, password, setPassword, onSubmit, fo
                 <input type="password" name="password" id="password" value={password} onChange={(event) => {setPassword(event.target.value)}}/>
             </fieldset>
 
-            <fieldset className={"border text-[1em] font-medium bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s] px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent hover:border-[#646cff]"}>
+            <fieldset className={submitButtonStyling}>
             <button type="submit">{formType}</button>
             </fieldset>
         </form>

@@ -6,6 +6,7 @@ import NotFound from "./component/NotFound";
 import Home from "./page/Home";
 import ProtectedRoute from "./component/ProtectedRoute";
 import Register from "./page/Register";
+import Logout from "./page/Logout";
 // import ProductDetail from "./component/ProductDetail"
 // import ProductListing from "./component/ProductListing"
 // import ProductCategory from "./component/ProductCategory"
