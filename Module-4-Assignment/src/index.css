@@ -40,7 +40,7 @@ h1 {
   line-height: 1.1;
 }
 
-a {
+/* a {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -54,21 +54,21 @@ a {
 
 a:hover {
   border-color: #646cff;
-} 
+}  */
 
-a:focus
+/* a:focus
 a:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
+  /* a:hover {
     color: #747bff;
-  }
+  } */
   button {
     background-color: #f9f9f9;
   }

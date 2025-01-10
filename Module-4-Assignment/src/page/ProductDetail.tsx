@@ -28,16 +28,18 @@ useEffect(() => {
   console.log(productFetched)
 
   console.log(typeof(productId))
+  const cleanedSrc = productFetched.images[1].replace(/\[\]\"/g, "");
+  const cleanImg = /[\[\]"]/g.test(cleanedSrc) ? `https://placehold.co/192` : cleanedSrc;
 
   return (
     <div>
       {isLoading ? <p>Loading...</p> : null}
+{/* 
+      <img src={cleanImg} className="w-[50vw] object-contain pt-2"/> */}
 
-      <img src={productFetched.images[0]} alt={productFetched.title} className="w-[50vw] object-contain pt-2"/>
+      {/* <img src={productFetched.images[1]} alt={productFetched.title} className=" w-[50vw] object-contain pt-2"/> */}
 
-      <img src={productFetched.images[1]} alt={productFetched.title} className=" w-[50vw] object-contain pt-2"/>
-
-      <img src={productFetched.images[2]} alt={productFetched.title} className=" w-[50vw] object-contain pt-2"/>
+      {/* <img src={productFetched.images[2]} alt={productFetched.title} className=" w-[50vw] object-contain pt-2"/> */}
 
       <h1>{productFetched.title}</h1>
 

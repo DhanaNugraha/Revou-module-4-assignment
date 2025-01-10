@@ -10,11 +10,11 @@ const ProductCategory = () => {
   }, []);
 
   const productCategories = {
-    1: "All",
-    2: "Clothes",
-    3: "Electronics",
-    4: "Shoes",
-    5: "Miscellaneous",
+    2: "All",
+    3: "Clothes",
+    4: "Electronics",
+    5: "Shoes",
+    22: "Miscellaneous",
   };
 
   const fetchCategory = async () => {
@@ -51,7 +51,7 @@ const ProductCategory = () => {
   }
 
   
-
+console.log("category", categoryFetched)
   return (
     <>
       <ul className="flex justify-around pt-[2%] pb-[2%]">
