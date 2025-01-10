@@ -5,6 +5,7 @@ const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const {productId} = useParams();
   const [productFetched, setProductFetched] = useState<any>({});
+  const [imageFetched, setImageFetched] = useState<any>("");
 
 useEffect(() => {
   fetchProduct();
@@ -18,8 +19,9 @@ useEffect(() => {
         `https://api.escuelajs.co/api/v1/products/${productId}`
       );
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
       setProductFetched(data);
+      setImageFetched(data.images)
       setIsLoading(false);
     } catch (error) {
       console.error("Error fetching product:", error);
@@ -28,14 +30,23 @@ useEffect(() => {
   console.log(productFetched)
 
   console.log(typeof(productId))
-  const cleanedSrc = productFetched.images[1].replace(/\[\]\"/g, "");
-  const cleanImg = /[\[\]"]/g.test(cleanedSrc) ? `https://placehold.co/192` : cleanedSrc;
+  // const cleanedSrc = productFetched.images[1].replace(/\[\]\"/g, "");
+  // const cleanImg = /[\[\]"]/g.test(cleanedSrc) ? `https://placehold.co/192` : cleanedSrc;
+
+  // console.log(imageFetched)
 
   return (
     <div>
       {isLoading ? <p>Loading...</p> : null}
 {/* 
-      <img src={cleanImg} className="w-[50vw] object-contain pt-2"/> */}
+      {imageFetched.map((image:any) => {
+        <img src={image} className="w-[50vw] object-contain pt-2"/>
+      })} */}
+      <img src={imageFetched[0]} className="w-[50vw] object-contain pt-2"/>
+
+      <img src={imageFetched[1]} className="w-[50vw] object-contain pt-2"/>
+
+      <img src={imageFetched[2]} className="w-[50vw] object-contain pt-2"/>
 
       {/* <img src={productFetched.images[1]} alt={productFetched.title} className=" w-[50vw] object-contain pt-2"/> */}
 
