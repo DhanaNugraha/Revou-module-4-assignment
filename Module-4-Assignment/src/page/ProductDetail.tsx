@@ -1,7 +1,51 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const {productId} = useParams();
+  const [productFetched, setProductFetched] = useState<any>({});
+
+useEffect(() => {
+  fetchProduct();
+  }, []);
+  
+
+  const fetchProduct = async () => {
+    try {
+      setIsLoading(true)
+      const response = await fetch(
+        `https://api.escuelajs.co/api/v1/products/${productId}`
+      );
+      const data = await response.json();
+      console.log(data)
+      setProductFetched(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error fetching product:", error);
+    }
+  }
+  console.log(productFetched)
+
+  console.log(typeof(productId))
+
   return (
-    <div>ProductDetail</div>
+    <div>
+      {isLoading ? <p>Loading...</p> : null}
+
+      <img src={productFetched.images[0]} alt={productFetched.title} className="w-[50vw] object-contain pt-2"/>
+
+      <img src={productFetched.images[1]} alt={productFetched.title} className=" w-[50vw] object-contain pt-2"/>
+
+      <img src={productFetched.images[2]} alt={productFetched.title} className=" w-[50vw] object-contain pt-2"/>
+
+      <h1>{productFetched.title}</h1>
+
+      <p>{productFetched.description}</p>
+
+      <p>Price: ${productFetched.price}</p>
+
+    </div>
   )
 }
 

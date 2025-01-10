@@ -41,16 +41,16 @@ const ProductListing = ({ categoryId }: any) => {
     return result
   }
 
-
+  console.log(productFetched)
 //   category ID 1 = all
   return categoryId === 1? 
     <div>
         {productFetched.map((product:any) => (
-            <div key={product.id} className={"h-[50vh] w-[30%] transition-[0.25s] rounded-[4px] border border-solid hover:border-[#646cff] hover:scale-[102%] p-2 overflow-hidden"}>
+            <div key={product.id} className={"h-[50vh] w-[30%] transition-[0.25s] rounded-[4px] border border-solid hover:border-[#646cff] hover:scale-[102%] p-2 overflow-hidden"}> 
+                <img src={product.images[1]} alt={product.title} className="h-[50%] object-contain pt-2"/>
                 <h4 className={"w-[fit-content] rounded-[1px] border-b border-solid "}>
                     {product.title}
                 </h4>
-                <img src={product.images[1]} alt={product.title} className="h-[50%] object-contain pt-2"/>
                 <p>
                     ${product.price}
                 </p>
@@ -62,10 +62,10 @@ const ProductListing = ({ categoryId }: any) => {
          {
             filteredProductfetched(productFetched, categoryId).map((product:any) => (
             <div key={product.id} className={"h-[50vh] w-[30%] transition-[0.25s] rounded-[4px] border border-solid hover:border-[#646cff] hover:scale-[102%] p-2 overflow-hidden"}>
+                <img src={product.images[1]} alt={product.title} className="h-[50%] object-contain pt-2"/>
                 <h4 className={"w-[fit-content] rounded-[1px] border-b border-solid "}>
                     {product.title}
                 </h4>
-                <img src={product.images[1]} alt={product.title} className="h-[50%] object-contain pt-2"/>
                 <p>
                     ${product.price}
                 </p>

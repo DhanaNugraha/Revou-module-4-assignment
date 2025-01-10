@@ -6,9 +6,8 @@ import NotFound from "./component/NotFound";
 import Home from "./page/Home";
 import ProtectedRoute from "./component/ProtectedRoute";
 import Register from "./page/Register";
-// import ProductDetail from "./component/ProductDetail"
-// import ProductListing from "./component/ProductListing"
-// import ProductCategory from "./component/ProductCategory"
+import ProductDetail from "./page/ProductDetail";
+
 
 const App = () => {
   return (
@@ -20,6 +19,7 @@ const App = () => {
           <Route element={<ProtectedRoute />}>
             <Route path="*" element={<NotFound />} />
             <Route path="/ShoppingCart" element={<ShoppingCart />} />
+            <Route path="/ProductDetail/:productId" element={<ProductDetail />} />
           </Route>
           <Route path="/Login" element={<Login />} />
           <Route path="/Register" element={<Register />} />
