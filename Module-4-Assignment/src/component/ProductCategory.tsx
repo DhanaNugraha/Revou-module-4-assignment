@@ -9,36 +9,40 @@ const ProductCategory = () => {
     fetchCategory();
   }, []);
 
-  const productCategories = {
-    2: "All",
-    3: "Clothes",
-    4: "Electronics",
-    5: "Shoes",
-    22: "Miscellaneous",
-  };
+  // const productCategories = {
+  //   1: "All",
+  //   2: "Clothes",
+  //   3: "Electronics",
+  //   4: "Shoes",
+  //   5: "Miscellaneous",
+  // };
 
   const fetchCategory = async () => {
     try {
-      for (const [key, value] of Object.entries(productCategories)) {
-        const response = await fetch(
-          `https://api.escuelajs.co/api/v1/categories/${key}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name: value,
-            })})
-        if (!response){
-            throw new Error
-        }
-        }
+      // for (const [key, value] of Object.entries(productCategories)) {
+      //   // console.log("key is", key, "value is", value)
+      //   const response = await fetch(
+      //     `https://api.escuelajs.co/api/v1/categories/`,
+      //     {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify({
+      //         name: value,
+      //         image: `${key}`
+      //       })})
+      //   if (!response){
+      //       throw new Error
+      //   }
+      //   }
       const response = await fetch(
         "https://api.escuelajs.co/api/v1/categories/"
       );
       const data = await response.json();
+      // console.log("data fetched", data)
       setCategoryFetched(data.slice(0,5));
+      setCategoryId(data.slice(0)[0].id)
     } catch (error) {
       console.error("Error fetching Category:", error);
     }
@@ -51,7 +55,7 @@ const ProductCategory = () => {
   }
 
   
-console.log("category", categoryFetched)
+// console.log("category", categoryFetched)
   return (
     <>
       <ul className="flex justify-around pt-[2%] pb-[2%]">
@@ -61,7 +65,7 @@ console.log("category", categoryFetched)
       </ul>
 
       <ProductListing
-        categoryId = {categoryId}
+        categoryId = {categoryId} 
       />
     </>
   );
