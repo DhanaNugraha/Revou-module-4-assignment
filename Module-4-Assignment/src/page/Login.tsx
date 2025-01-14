@@ -1,43 +1,44 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginRegisterForm from "../component/LoginRegisterForm";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userFetched, setUserFetched] = useState([])
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchUser()
-  }, [])
+  const handleLoginSubmit = async (event: any) => {
+    event.preventDefault();
 
-  const fetchUser = async () => {
     try {
       const response = await fetch(
-        "https://api.escuelajs.co/api/v1/users"
+        "https://api.escuelajs.co/api/v1/auth/login",
+        {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+              email: email,
+              password: password,
+          }),
+        }
       );
+
       const data = await response.json();
-      setUserFetched(data);
+
+      data.access_token
+      ?  localStorage.setItem("access_token", data.access_token)
+      : alert("Invalid Email or Password!")
+
     } catch (error) {
       console.error("Error fetching user:", error);
-    }
-  }
 
-  const handleLoginSubmit = (event: any) => {
-    event.preventDefault();
-    if (userFetched){
-      // drawback -> search through all and does not stop when found
-      userFetched.map((user:any) => {
-        if (email === user.email && password === user.password){
-          localStorage.setItem("token", "tokenValue");
-          navigate("/ShoppingCart");
-        }})
-      if(!localStorage.getItem("token")) {
-        alert("invalid email or password");
-      }
-    } else {
-      alert("No user data found!");
+    } finally {
+      if (localStorage.getItem("access_token")) {
+        alert("You have successfully logged in!");
+        navigate("/ShoppingCart");
+      } 
     }
   };
 

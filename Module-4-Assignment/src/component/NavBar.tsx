@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
     const navigate = useNavigate()
-  const isLoggedIn = Boolean(localStorage.getItem("token"));
+  const isLoggedIn = Boolean(localStorage.getItem("access_token"));
 
   const handleLogout = () => {
     localStorage.clear();
