@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-// import AddToCartButton from "./AddToCartButton";
-// import ShoppingCart from "../page/ShoppingCart";
+// import { Link } from "react-router-dom";
+import useCart from "../hooks/useCart";
+import Product from "./Product";
 
 const ProductListing = ({ categoryId }: any) => {
-
-  const [productFetched, setProductFetched] = useState([]);
+  const [productFetched, setProductFetched] = useState<any>([]);
+  const {dispatch, REDUCER_ACTIONS} = useCart()
+  // const [{products}] = productFetched
 
   console.log(categoryId)
 //   console.log(typeof categoryId);
@@ -28,24 +29,30 @@ const ProductListing = ({ categoryId }: any) => {
     }
   }
 
-return (
+  // initial value is loading, when items arrive, it will be changed
+  let pageContent = <p>This category might be empty <br/> Loading... </p>
+  
+
+  if (productFetched?.length) {
+    pageContent = productFetched.map((product: any) => {
+        return (
+            <Product 
+                key={product.id} 
+                product = {product} 
+                dispatch = {dispatch}
+                REDUCER_ACTIONS = {REDUCER_ACTIONS}
+            />
+        )
+    })
+}
+
+  const content = (
     <div className = "productListingContainer">
-        {productFetched.map((product:any) => (
-            <div key = {product.id} className="productListing">
-                <Link to={`/ProductDetail/${product.id}`} key={product.id}> 
-                        <img src={product.images[1]} alt={product.title} className="productListingImg"/>
-                        <h4 className={"w-[fit-content] rounded-[1px] border-b border-solid "}>
-                            {product.title}
-                        </h4>
-                        <p>
-                            ${product.price}
-                        </p>
-                </Link>
-                <button className="border text-[1em] font-medium bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s] px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent hover:border-[#646cff]" >add to cart</button>
-            </div>
-        ))}
-    </div> 
+      {pageContent}
+    </div>
   )
+
+  return content
 }
 export default ProductListing;
 
