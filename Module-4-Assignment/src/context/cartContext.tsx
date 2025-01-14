@@ -5,6 +5,7 @@ const initCartState = {cart:[]}
 
 const REDUCER_ACTION_CHOICE= {
     ADD: "ADD",
+    SUBSTRACT: "SUBSTRACT",
     REMOVE: "REMOVE",
     QUANTITY: "QUANTITY",
     SUBMIT: "SUBMIT",
@@ -36,6 +37,32 @@ const reducer = (state: any, action: any) => {
             const qty: number = itemExistInCart? itemExistInCart.qty + 1 : 1
 
             return {...state, cart: [...filteredCart, {id, title, price, qty, images}]}
+        }
+        case REDUCER_ACTION_CHOICE.SUBSTRACT: {
+            if (!action.payload) {
+                throw new Error("action.payload missing in ADD action")
+            }
+            // destructure the incoming payload
+            const {id, title, price, images} = action.payload
+
+            // Store the cart array without the current item payload that is being checked
+            const filteredCart = state.cart.filter(
+                (item: any) => item.id !== id
+            )
+
+            // find the item checked in cartState
+            const itemExistInCart = state.cart.find(
+                (item: any) => item.id === id
+            )
+
+            // If item exist in cartState -> add qty. if no, set as 1
+            const qty: number = itemExistInCart.qty - 1 
+
+            if (qty ===0 ) {
+                return {...state, cart:[...filteredCart]}
+            } else {
+                return {...state, cart: [...filteredCart, {id, title, price, qty, images}]}
+            }
         }
         case REDUCER_ACTION_CHOICE.REMOVE: {
             if (!action.payload) {

@@ -30,8 +30,8 @@ const Register = () => {
             navigate("/Login")
         } else {
             const data = await response.json();
-            console.log("response", response)
-            console.log("Added email pass:", data);
+            // console.log("response", response)
+            // console.log("Added email pass:", data);
             throw(data)
         }
       } catch (error:any) {

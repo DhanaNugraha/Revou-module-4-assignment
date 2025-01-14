@@ -9,33 +9,8 @@ const ProductCategory = () => {
     fetchCategory();
   }, []);
 
-  // const productCategories = {
-  //   1: "All",
-  //   2: "Clothes",
-  //   3: "Electronics",
-  //   4: "Shoes",
-  //   5: "Miscellaneous",
-  // };
-
   const fetchCategory = async () => {
     try {
-      // for (const [key, value] of Object.entries(productCategories)) {
-      //   // console.log("key is", key, "value is", value)
-      //   const response = await fetch(
-      //     `https://api.escuelajs.co/api/v1/categories/`,
-      //     {
-      //       method: "POST",
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //       },
-      //       body: JSON.stringify({
-      //         name: value,
-      //         image: `${key}`
-      //       })})
-      //   if (!response){
-      //       throw new Error
-      //   }
-      //   }
       const response = await fetch(
         "https://api.escuelajs.co/api/v1/categories/"
       );

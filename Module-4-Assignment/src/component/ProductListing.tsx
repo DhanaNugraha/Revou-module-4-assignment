@@ -8,7 +8,7 @@ const ProductListing = ({ categoryId }: any) => {
   const {dispatch, REDUCER_ACTIONS} = useCart()
   // const [{products}] = productFetched
 
-  console.log(categoryId)
+  // console.log(categoryId)
 //   console.log(typeof categoryId);
 //   console.log("category ID", categoryId);
 
@@ -23,7 +23,7 @@ const ProductListing = ({ categoryId }: any) => {
       );
       const data = await response.json();
       setProductFetched(data);
-      console.log("item fetched", data)
+      // console.log("item fetched", data)
     } catch (error) {
       console.error("Error fetching product:", error);
     }
