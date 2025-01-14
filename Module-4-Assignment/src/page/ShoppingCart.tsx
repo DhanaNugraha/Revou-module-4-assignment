@@ -1,18 +1,42 @@
-// import { useState} from "react";
+import useCart from "../hooks/useCart"
+import { useState } from "react"
+import CartItems from "../component/CartItems"
 
 const ShoppingCart = () => {
-  // const [cartItems, setCartItems] = useState([]);
-  // console.log(product)
-  // alert(product)
+  const [confirm, setConfirm] = useState(false)
 
-  // const addToCart = (product: Product) => {
-  //   setCartItems([...cartItems, product]);
-  // };
+  const {dispatch, REDUCER_ACTIONS,  totalItems, totalPrice, cart} = useCart()
+
+  const onSubmitOrder = () => {
+    dispatch({type: REDUCER_ACTIONS.SUBMIT})
+    setConfirm(true)
+  }
+
+  const pageContentTernary = confirm
+    ? <h2>Thank for your order</h2>
+    : <>
+        <ul className="cart">
+          {cart.map((item: any) => {
+            return(
+              <CartItems key={item.id} item={item} dispatch={dispatch} REDUCER_ACTIONS={REDUCER_ACTIONS} />
+            )
+          })}
+        </ul>
+
+        <div className="cartTotals">
+          <p>Total Items: {totalItems}</p>
+          <p>Total Price: ${totalPrice}</p>
+          {/* cant click button if theres no item in the cart */}
+          <button className="cartSubmit" disabled={!totalItems} onClick={onSubmitOrder}>
+              Place Order
+          </button>
+        </div>
+      </>
 
   return (
-    <div>
-      <h1>Shopping Cart</h1>
-    </div>
+    <main className="main mainCart">
+      {pageContentTernary}
+    </main>
   )
 }
 

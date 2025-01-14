@@ -9,7 +9,7 @@ const Product = ({product, dispatch, REDUCER_ACTIONS}: any) => {
     
   return (
     <div key = {product.id} className="productListing">
-        <Link to={`/ProductDetail/${product.id}`} key={product.id}> 
+        <Link className="productListLinkContainer" to={`/ProductDetail/${product.id}`} key={product.id}> 
                 <img src={product.images[1]} alt={product.title} className="productListingImg"/>
                 <h4 className={"w-[fit-content] rounded-[1px] border-b border-solid "}>
                     {product.title}
