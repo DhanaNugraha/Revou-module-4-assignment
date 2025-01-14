@@ -5,12 +5,12 @@ const LoginRegisterForm = ({email, setEmail, password, setPassword, onSubmit, fo
 
   return (
         <form onSubmit={onSubmit} className={"flex flex-col place-items-center p-[10%]"}>
-            <fieldset className={"p-[1%]"}>
+            <fieldset className="formFill email">
                 <label htmlFor="email">Email </label>
                 <input type="email" name="email" id="email" value={email} onChange={(event) => {setEmail(event.target.value)}} />
             </fieldset>
 
-            <fieldset className={"p-[1%]"}>
+            <fieldset className="formFill password">
                 <label htmlFor="password">Password </label>
                 <input type="password" name="password" id="password" value={password} onChange={(event) => {setPassword(event.target.value)}}/>
             </fieldset>

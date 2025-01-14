@@ -35,6 +35,13 @@ h1 {
   line-height: 1.1;
 }
 
+.formFill {
+  padding-bottom: 0.4em;
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .productListingContainer {
   display: flex;
   gap: 1rem;
