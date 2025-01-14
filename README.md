@@ -14,7 +14,11 @@
 ## Features
 - Register and Login with your personal email and password
 - Locked features if user have not logged in
-- Display item based on categories
+- Display items based on categories
+- Item details page for each product
+- Add to cart button for each item
+- Cart page that displays all items added to the cart
+- Customisable item quantity in cart page
 
 
 ## Technologies Used
