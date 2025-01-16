@@ -35,6 +35,61 @@ h1 {
   line-height: 1.1;
 }
 
+.navbarContainer {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  border-bottom-width: 1px; 
+  border-style: solid; 
+  padding: 2%;
+  /* flex justify-around pt-[2%] pb-[2%] border-b border-solid */
+}
+
+.navbarContentStyling, .navbarCurrentPageContentStyling  {
+  border-radius: 0.5rem; 
+  border-width: 1px; 
+  border-color: transparent; 
+  border-style: solid; 
+  font-weight: 500; 
+  cursor: pointer; 
+  color: 0.8em;
+  padding: 1%
+}
+
+.navbarContentStyling {
+  background: #1a1a1a;
+  /* "h-[2em] text-[0.8em] border font-medium bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s] px-[1em] py-[0.2em] rounded-lg border-solid border-transparent hover:border-[#646cff]" */
+}
+
+.navbarCurrentPageContentStyling {
+  background: #60A5FA;
+  /* "h-[2em] text-[0.8em] border font-medium bg-blue-400 cursor-pointer transition-[border-color] duration-[0.25s] px-[1em] py-[0.2em] rounded-lg border-solid border-transparent hover:border-[#646cff]" */
+}
+
+.navbarContentStyling:hover{ 
+  border-color: #646cff;
+}
+
+.navbarCurrentPageContentStyling:hover {
+  border-color: #1a1a1a;
+}
+
+.navbarContentStyling:hover, .navbarCurrentPageContentStyling:hover  {
+  transform: scale(1.2);
+  box-shadow: 2px 2px 2px gray;
+}
+
+
+.navBarLoginButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 9em;
+}
+
+.navBarLoginButtons > a {
+  padding: 4%;
+}
+
 .formFill {
   padding-bottom: 0.4em;
   width: 280px;
