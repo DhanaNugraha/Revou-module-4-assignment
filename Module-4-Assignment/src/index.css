@@ -46,7 +46,7 @@ h1 {
 }
 
 .navbarContentStyling, .navbarCurrentPageContentStyling  {
-  border-radius: 0.5rem; 
+  border-radius: 0.3rem; 
   border-width: 1px; 
   border-color: transparent; 
   border-style: solid; 
@@ -57,12 +57,13 @@ h1 {
 }
 
 .navbarContentStyling {
-  background: #1a1a1a;
+  /* background: #1a1a1a; */
   /* "h-[2em] text-[0.8em] border font-medium bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s] px-[1em] py-[0.2em] rounded-lg border-solid border-transparent hover:border-[#646cff]" */
 }
 
 .navbarCurrentPageContentStyling {
-  background: #60A5FA;
+  border-bottom: 1px solid #60A5FA;
+  color: #60A5FA;
   /* "h-[2em] text-[0.8em] border font-medium bg-blue-400 cursor-pointer transition-[border-color] duration-[0.25s] px-[1em] py-[0.2em] rounded-lg border-solid border-transparent hover:border-[#646cff]" */
 }
 
@@ -91,7 +92,7 @@ h1 {
 
 .shopLogoContainer {
   display: flex;
-  
+
 }
 
 .formFill {
