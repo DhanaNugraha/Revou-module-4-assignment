@@ -28,7 +28,7 @@ const NavBar = () => {
       ) : (
         <div className="navBarLoginButtons">
           <Link className={checkLocation("/Login")} to="/Login">Login</Link>
-          <Link className={checkLocation("/Register")} to="/Register">Register</Link>
+          <Link className={checkLocation("/Register")} to="/Register">Sign Up</Link>
         </div>
       )}
     </div>

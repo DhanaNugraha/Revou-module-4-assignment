@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const Product = ({product, dispatch, REDUCER_ACTIONS}: any) => {
+    const navigate = useNavigate();
+    const token = localStorage.getItem("access_token");
 
     const onAddToCart = () => {
-        dispatch({type: REDUCER_ACTIONS.ADD, payload: {...product, qty:1}})
-        alert("Item added to cart")
+        if (token) {
+            dispatch({type: REDUCER_ACTIONS.ADD, payload: {...product, qty:1}})
+            alert("Item added to cart") 
+        } else {
+            navigate("/Login") 
+            alert("Please log in to add item to cart") 
+        }
     }
     
   return (

@@ -6,11 +6,12 @@ import Product from "./Product";
 const ProductListing = ({ categoryId }: any) => {
   const [productFetched, setProductFetched] = useState<any>([]);
   const {dispatch, REDUCER_ACTIONS} = useCart()
+
   // const [{products}] = productFetched
 
   // console.log(categoryId)
-//   console.log(typeof categoryId);
-//   console.log("category ID", categoryId);
+  //   console.log(typeof categoryId);
+  //   console.log("category ID", categoryId);
 
   useEffect(() => {
     fetchProduct();
