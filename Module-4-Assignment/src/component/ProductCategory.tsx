@@ -33,7 +33,7 @@ const ProductCategory = () => {
 // console.log("category", categoryFetched)
   return (
     <>
-      <ul className="flex justify-around pt-[2%] pb-[2%]">
+      <ul className="flex justify-around pt-[2%] pb-[4%]">
         {categoryFetched.map((category: any) => (
           <button id={category.id} key={category.id} className="w-[1fr] transition-[0.25s] rounded-[1px] border-b border-solid hover:border-[#646cff] hover:scale-[108%]" onClick={handleClickCategory}>{category.name}</button>
         ))}
