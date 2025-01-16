@@ -79,7 +79,6 @@ h1 {
   box-shadow: 2px 2px 2px gray;
 }
 
-
 .navBarLoginButtons {
   display: flex;
   justify-content: space-between;
@@ -88,6 +87,11 @@ h1 {
 
 .navBarLoginButtons > a {
   padding: 4%;
+}
+
+.shopLogoContainer {
+  display: flex;
+  
 }
 
 .formFill {
@@ -123,12 +127,19 @@ h1 {
   /* h-[50vh] w-[30%] transition-[0.25s] rounded-[4px] border border-solid hover:border-[#646cff] hover:scale-[102%] p-2 overflow-hidden  */
 }
 
+.productListing:hover {
+  transform: scale(1.05);
+  border: 1px solid gray;
+  box-shadow: 4px 4px 8px gray;
+}
+
 .productListLinkContainer{
   flex-flow: column;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 
 .productListingImg {
   max-width: 350px;

@@ -19,10 +19,10 @@ const Product = ({product, dispatch, REDUCER_ACTIONS}: any) => {
     <div key = {product.id} className="productListing">
         <Link className="productListLinkContainer" to={`/ProductDetail/${product.id}`} key={product.id}> 
                 <img src={product.images[1]} alt={product.title} className="productListingImg"/>
-                <h4 className={"w-[fit-content] rounded-[1px] border-b border-solid "}>
+                <h4 className={"w-[fit-content]"}>
                     {product.title}
                 </h4>
-                <p>
+                <p className={"text-[1.2em]"}>
                     ${product.price}
                 </p>
         </Link>

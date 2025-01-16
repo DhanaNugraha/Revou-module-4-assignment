@@ -20,9 +20,12 @@ const NavBar = () => {
 
   return (
     <div className="navbarContainer">
-      <h1>Shop Free</h1>
+      <div className="shopLogoContainer">
+        <img src="\src\assets\shopping-bag.svg" alt="Shopping Bag" className="w-[3em]"/>
+        <h1 className="text-orange-600">Shop Free</h1>
+      </div>
       <Link className={checkLocation("/")} to="/">Home</Link>
-      <Link className={checkLocation("/ShoppingCart")} to="/ShoppingCart">Cart</Link>
+      <Link className={checkLocation("/ShoppingCart")} to="/ShoppingCart"><img src="\src\assets\cart.svg" alt="Cart"  className="w-[2em]"/></Link>
       {isLoggedIn ? (
         <button onClick={handleLogout} className={checkLocation("/Login")}>Logout</button>
       ) : (
