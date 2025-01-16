@@ -26,8 +26,32 @@ const Register = () => {
           }
         );
         if (response.ok){
-            alert("Account succesfully registered, you can now login with your new account")
-            navigate("/Login")
+          console.log("here")
+
+          const response = await fetch(
+            "https://api.escuelajs.co/api/v1/auth/login",
+            {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  email: email,
+                  password: password,
+              }),
+            }
+          );
+
+          const data = await response.json();
+
+          // console.log("data", data)
+
+          data.access_token
+          ?  localStorage.setItem("access_token", data.access_token)
+          : alert("Fail to register account, please try again later!")
+
+          navigate("/")
+          
         } else {
             const data = await response.json();
             // console.log("response", response)
