@@ -9,7 +9,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #121212;
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -39,9 +40,12 @@ h1 {
   display: flex; 
   justify-content: space-between; 
   align-items: center;
-  border-bottom-width: 1px; 
-  border-style: solid; 
+  /* border-bottom-width: 1px;  */
+  /* border-style: solid;  */
   padding: 2%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background: #242424;
   /* flex justify-around pt-[2%] pb-[2%] border-b border-solid */
 }
 
@@ -52,32 +56,20 @@ h1 {
   border-style: solid; 
   font-weight: 500; 
   cursor: pointer; 
-  color: 0.8em;
-  padding: 1%
-}
-
-.navbarContentStyling {
-  /* background: #1a1a1a; */
-  /* "h-[2em] text-[0.8em] border font-medium bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s] px-[1em] py-[0.2em] rounded-lg border-solid border-transparent hover:border-[#646cff]" */
+  padding: 1%;
+  transition-duration: 100ms;
+  transition-property: transform;
+  /* transition: all; */
 }
 
 .navbarCurrentPageContentStyling {
   border-bottom: 1px solid #60A5FA;
   color: #60A5FA;
-  /* "h-[2em] text-[0.8em] border font-medium bg-blue-400 cursor-pointer transition-[border-color] duration-[0.25s] px-[1em] py-[0.2em] rounded-lg border-solid border-transparent hover:border-[#646cff]" */
-}
-
-.navbarContentStyling:hover{ 
-  border-color: #646cff;
-}
-
-.navbarCurrentPageContentStyling:hover {
-  border-color: #1a1a1a;
 }
 
 .navbarContentStyling:hover, .navbarCurrentPageContentStyling:hover  {
   transform: scale(1.2);
-  box-shadow: 2px 2px 2px gray;
+  border-bottom: 1px solid #646cff;
 }
 
 .navBarLoginButtons {
@@ -106,14 +98,15 @@ h1 {
   display: flex;
   gap: 1rem;
   flex-flow: row wrap;
-  justify-content: space-between;
+  /* justify-content: space-between */
 }
 
 .productListing {
-  width:30%;
+  /* width:30%; */
+  /* width: 100%; */
+  margin-right: 1.2%;
   margin-bottom: 1em;
   list-style: none;
-  width: 100%;
   height: auto;
   flex-shrink: 0;
   box-shadow: 0px 0px 4px gray;
@@ -125,6 +118,9 @@ h1 {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition-duration: 100ms;
+  transition-property: transform;
+  background: #242424;
   /* h-[50vh] w-[30%] transition-[0.25s] rounded-[4px] border border-solid hover:border-[#646cff] hover:scale-[102%] p-2 overflow-hidden  */
 }
 
@@ -149,6 +145,9 @@ h1 {
   /* h-[50%] object-contain pt-2 */
 }
 
+
+
+/* cart */
 .mainCart {
   margin: 0;
   padding: 2%;
@@ -162,12 +161,15 @@ h1 {
 .cartTotals{
   padding-top: 2%;
   border-top: 1px solid;
-  
   /* flex-grow: 1;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
   align-self: flex-start; */
+}
+
+.cartTotals > p {
+  padding-bottom: 1%;
 }
 
 .cartSubmit {
@@ -217,12 +219,65 @@ h1 {
   border-color: #646cff;
 }  
 
-
 .cartItemImg{
   max-width: 350px;
   height: 10em;
   object-fit: contain;
 }
+
+
+/* Product Detail */
+.productDetailContainer {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+}
+
+.productDetailImgContainer {
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+  margin-bottom: 2%;
+}
+
+.productDetailImgButtonContainer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+}
+
+.productDetailImgButtonContainer > button {
+  background: #80808080;
+  padding: 1%;
+  padding-top: 0;
+  transition-duration: 100ms;
+}
+
+.productDetailImgButtonContainer > button:hover {
+  transform: scale(1.2);
+  border: 1px solid #646cff;
+  color: #646cff;
+}
+
+
+.productDetailTextContainer {
+  margin-bottom: 2%;
+  width: 80vw;
+}
+
+.productDetailTextContainer > h1 {
+  margin-bottom: 2%;
+}
+
 
 
 @media screen and (min-width: 420px){
@@ -232,30 +287,8 @@ h1 {
 
 @media screen and (min-width: 601px){
   .productListing {
-    width: 30%
+    width: 31%
   }}
 
-
-
-/* a {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-a:hover {
-  border-color: #646cff;
-}  */
-
-/* a:focus
-a:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
 
 

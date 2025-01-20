@@ -6,9 +6,9 @@ const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const {productId} = useParams();
   const [productFetched, setProductFetched] = useState<any>({});
-  const [imageFetched, setImageFetched] = useState<any>("");
-
+  const [imageFetched, setImageFetched] = useState<any>([]);
   const {dispatch, REDUCER_ACTIONS} = useCart()
+  const [displayImageNum, setDisplayImageNum] = useState(0)
 
 useEffect(() => {
   fetchProduct();
@@ -29,29 +29,39 @@ useEffect(() => {
       console.error("Error fetching product:", error);
     }
   }
-  // console.log(productFetched)
-
-  // console.log(typeof(productId))
 
   const onAddToCart = () => {
     dispatch({type: REDUCER_ACTIONS.ADD, payload: {...productFetched, qty:1}})
     alert("Item added to cart")
   }
 
+  const onImgButtonClick = () => {
+    const imgListLength = imageFetched.length - 1
+    setDisplayImageNum(displayImageNum + 1)
+
+    if (displayImageNum >= imgListLength) {
+      setDisplayImageNum(0)
+    }
+    // console.log(displayImageNum)
+  }
+
 
   return (
-    <div>
+    <div className="productDetailContainer">
       {isLoading ? <p>Loading...</p> : null}
 
-      <img src={imageFetched[0]} className="w-[50vw] object-contain pt-2"/>
+      <section className="productDetailImgContainer">
+        <img src={imageFetched[displayImageNum]} className="w-[50vw] object-contain min-w-[300px] max-w-[530px]"/>
+        <article className="productDetailImgButtonContainer">
+          <button onClick={onImgButtonClick}>←</button>
+          <button onClick={onImgButtonClick}>→</button>
+        </article>
+      </section>
 
-      <img src={imageFetched[1]} className="w-[50vw] object-contain pt-2"/>
-
-      <img src={imageFetched[2]} className="w-[50vw] object-contain pt-2"/>
-
-      <h1>{productFetched.title}</h1>
-
-      <p>{productFetched.description}</p>
+      <section className="productDetailTextContainer">
+        <h1>{productFetched.title}</h1>
+        <p>{productFetched.description}</p>
+      </section>
 
       <p>Price: ${productFetched.price}</p>
 
